@@ -1,6 +1,5 @@
 <template>
   <UiCard
-      style="margin: 100px"
       padding="4"
   >
     <UiStack
