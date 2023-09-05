@@ -1,0 +1,57 @@
+
+<template>
+    <div class='card'>
+        <div
+            class="card__body"
+            :class='[`card-padding-${padding}`]'
+        >
+            <slot></slot>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+interface Props {
+    padding?: "0" | "1" | "2" | "3" | "4" | "5"
+}
+defineProps<Props>()
+</script>
+
+<style lang="scss" >
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    word-wrap: break-word;
+    background-color: white;
+    background-clip: border-box;
+    border-radius: 0.85rem;
+    box-shadow: 0px 3px 3px -1px rgba(10, 22, 70, 0.1), 0px 0px 1px 0px rgba(10, 22, 70, 0.06);
+
+    &-padding-1 {
+        padding: 10px;
+    }
+
+    &-padding-2 {
+        padding: 15px;
+    }
+
+    &-padding-2 {
+        padding: 20px;
+    }
+
+    &-padding-3 {
+        padding: 30px;
+    }
+
+    &-padding-4 {
+        padding: 30px;
+    }
+
+    &-padding-5 {
+        padding: 30px;
+    }
+}
+</style>
+

@@ -1,0 +1,99 @@
+<template>
+    <div class="table">
+        <table class='table__block'>
+            <thead>
+                <tr>
+                    <slot name="header" />
+                </tr>
+            </thead>
+
+            <tbody>
+                <slot name="body" />
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<script setup lang="ts">
+</script>
+
+<style lang="scss" >
+.table {
+    position: relative;
+    border-radius: 0.75rem;
+    border: 1px solid #e7eaf0;
+    // box-shadow: 0px 3px 3px -1px rgba(10, 22, 70, 0.1), 0px 0px 1px 0px rgba(10, 22, 70, 0.06) !important;
+    .table__block::after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        z-index: -100;
+        border-radius: 0.75rem;
+    }
+    .table__block {
+        border-collapse: collapse;
+        width: 100%;
+        text-align: left;
+    }
+    th,
+    td {
+        padding: 1rem 1.5rem;
+    }
+    thead {
+        // background-color: #f5f9fc;
+        background-color: white;
+        color: #525f7f;
+        border-bottom: 1px solid rgb(230, 230, 230);
+        display: contents;
+        th {
+            // border-top: 1px solid rgb(230, 230, 230);
+            border-bottom: 1px solid rgb(230, 230, 230);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            font-size: .675rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .025em;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+    }
+    tbody {
+        display: contents;
+        tr {
+            min-height: 70px;
+            height: 70px;
+        }
+        td {
+            border-bottom: 1px solid #e7eaf0;
+            font-size: .8125rem;
+            white-space: nowrap;
+            padding: 1rem 1.5rem;
+            background-color: transparent;
+        }
+        tr:last-child {
+            td {
+                border-bottom: 0;
+            }
+        }
+    }
+}
+
+.table__menu {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+}
+</style>
