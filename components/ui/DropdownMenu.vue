@@ -1,28 +1,22 @@
 <template>
     <div
         class="dropdown"
-        @click="$emit('click')"
+        tabindex="-1"
+        @blur.capture="$emit('blur')"
+        @focus.capture="$emit('focus')"
     >
-        <div
-            class='dropdown-menu-button'
-            @click="isShow = !isShow"
-        >
+        <div class='dropdown-menu-button'>
             <slot name="dropdown" />
         </div>
         <div
             class='dropdown-menu'
             v-if="isShow"
         >
-            <slot
-                name="body"
-                :close="() => isShow = !isShow"
-            ></slot>
+            <slot name="body"></slot>
         </div>
     </div>
 </template>
 <script setup lang="ts">
-
-const isShow = ref(false)
 
 interface Props {
     isShow?: boolean
@@ -81,4 +75,5 @@ defineProps<Props>()
     }
 
     z-index: 10000;
-}</style>
+}
+</style>

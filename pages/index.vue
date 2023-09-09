@@ -1,7 +1,5 @@
 <template>
-  <UiCard
-      padding="4"
-  >
+  <UiCard padding="4">
     <UiStack
         flex-direction="column"
         gap="3"
@@ -204,11 +202,17 @@
       </UiStack>
     </UiStack>
 
-    <UiStack flex-direction="column" gap="3">
-
-      <UiDropdownMenu>
+    <UiStack
+        flex-direction="column"
+        gap="3"
+    >
+      <UiDropdownMenu
+          :isShow="isActiveDrop"
+          @blur="isActiveDrop = false"
+          @focus="isActiveDrop = true"
+      >
         <template #dropdown>
-          <UiButton @click="showModal = true">Открыть</UiButton>
+          <UiButton >Открыть</UiButton>
         </template>
         <template #body>
           <UiTypography>Кликай на меня</UiTypography>
@@ -265,7 +269,7 @@
 <script setup>
 import IconsSearch from "@/components/icons/search.vue";
 
-const showModal = ref(false)
+const isActiveDrop = ref(false)
 const inputValue = ref("");
 const isCheck = ref(false);
 const date = ref(new Date());
