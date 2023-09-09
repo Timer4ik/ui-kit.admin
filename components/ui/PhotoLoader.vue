@@ -34,7 +34,7 @@ defineComponent({
 interface Props extends /* @vue-ignore */  InputHTMLAttributes {
     label?: string
     isInvalid?: boolean
-    modelValue: string
+    modelValue?: string
 }
 
 const props = defineProps<Props>()

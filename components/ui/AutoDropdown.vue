@@ -2,8 +2,8 @@
     <div
         class="dropdown"
         tabindex="-1"
-        @blur.capture="$emit('blur')"
-        @focus.capture="$emit('focus')"
+        @blur.capture="isShow = false"
+        @focus.capture="isShow = true"
     >
         <div class='dropdown-menu-button'>
             <slot name="body" />
@@ -12,18 +12,13 @@
             class='dropdown-menu'
             v-if="isShow"
         >
-            <slot name="drop"/>
+            <slot name="drop"></slot>
         </div>
     </div>
 </template>
 <script setup lang="ts">
 
-interface Props {
-    isShow?: boolean
-}
-
-defineEmits(["click"])
-defineProps<Props>()
+const isShow = ref(false)
 
 </script>
 
@@ -44,6 +39,7 @@ defineProps<Props>()
 }
 
 .dropdown-menu {
+
     position: absolute;
     top: 150%;
     display: flex;
@@ -59,6 +55,7 @@ defineProps<Props>()
     padding: 17px 15px;
     box-shadow: 0px 16px 16px -1px rgba(10, 22, 70, .1), 0px 0px 1px 0px rgba(10, 22, 70, .06);
     font-weight: 400;
+    left: 0;
 
     &>* {
         padding-bottom: 20px;

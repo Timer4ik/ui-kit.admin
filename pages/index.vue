@@ -82,7 +82,7 @@
               label="Загрузите файл"
               message="Файл не может превышать 2 мб"
           >
-            <UiFileLoader />
+            <UiFileLoader model-value="" />
           </UiControl>
 
           <UiControl
@@ -211,42 +211,64 @@
           @blur="isActiveDrop = false"
           @focus="isActiveDrop = true"
       >
-        <template #dropdown>
-          <UiButton >Открыть</UiButton>
-        </template>
         <template #body>
+          <UiButton>Открыть</UiButton>
+        </template>
+        <template #drop>
           <UiTypography>Кликай на меня</UiTypography>
         </template>
       </UiDropdownMenu>
 
       <UiTable>
         <template #header>
-          <th></th>
-          <th>Привет</th>
-          <th>Привет</th>
-          <th>Привет</th>
-          <th>Привет</th>
-          <th>Привет</th>
+
         </template>
-        <template #body>
-          <tr v-for="item in [1, 2, 3, 4, 5, 6]">
+        <template #thead>
+          <th></th>
+          <th>
+            <div>ID</div>
+          </th>
+          <th>
+            <div>Заголовок</div>
+          </th>
+          <th>
+            <div>Выполнено?</div>
+          </th>
+        </template>
+        <template #tbody>
+          <tr v-for="item in todoList">
             <td>
-              <UiDropdownMenu>
-                <template #dropdown>
-                  <UiTableMenuIcon />
-                </template>
+              <UiAutoDropdown>
                 <template #body>
-                  <div>Привет</div>
-                  <div>Привет</div>
-                  <div>Привет</div>
+                  <div style="cursor: pointer;width: 25px;height: 25px;">
+                    <UiTableMenuIcon />
+                  </div>
                 </template>
-              </UiDropdownMenu>
+                <template #drop>
+                  <div>
+                    <div>Привет</div>
+                  </div>
+                  <div>
+                    <div>Привет</div>
+                  </div>
+                  <div>
+                    <div>Привет</div>
+                  </div>
+                </template>
+              </UiAutoDropdown>
             </td>
-            <td>Привет</td>
-            <td>Привет</td>
-            <td>Привет</td>
-            <td>Привет</td>
-            <td>Привет</td>
+            <td>
+              <div>{{ item.id }}</div>
+            </td>
+            <td>
+              <div>{{ item.title }}</div>
+            </td>
+            <td>
+              <UiCheckbox
+                  disabled
+                  :model-value="item.completed"
+              />
+            </td>
           </tr>
         </template>
       </UiTable>
@@ -266,20 +288,53 @@
   </UiCard>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import IconsSearch from "@/components/icons/search.vue";
 
 const isActiveDrop = ref(false)
 const inputValue = ref("");
 const isCheck = ref(false);
 const date = ref(new Date());
-const items = [
-  { id: 1, item: 1, value: 1 },
-  { id: 2, item: 2, value: 2 },
-  { id: 3, item: 3, value: 3 },
-];
+const items: {
+  id: number
+  value: string
+  item: any
+}[] = [
+    { id: 1, item: 1, value: "1" },
+    { id: 2, item: 2, value: "2" },
+    { id: 3, item: 3, value: "3" },
+  ];
 const selectedItem = ref(null);
 const selectedItems = ref([]);
 
-const file = ref(null);
+const file = ref<string>("null");
+
+interface Todo {
+  id: number
+  title: string
+  completed: boolean
+}
+
+const todoList: Todo[] = [
+  {
+    id: 0,
+    title: "hello",
+    completed: false
+  },
+  {
+    id: 1,
+    title: "hello",
+    completed: false
+  },
+  {
+    id: 2,
+    title: "hello",
+    completed: false
+  },
+  {
+    id: 3,
+    title: "hello",
+    completed: false
+  },
+]
 </script>

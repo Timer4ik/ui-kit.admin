@@ -10,7 +10,7 @@
 <script setup lang="ts">
 
 interface Props {
-    fixed: boolean
+    fixed?: boolean
 }
 
 defineProps<Props>()

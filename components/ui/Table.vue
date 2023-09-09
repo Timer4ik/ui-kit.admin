@@ -1,27 +1,48 @@
 <template>
     <div class="table">
-        <table class='table__block'>
-            <thead>
-                <tr>
-                    <slot name="header" />
-                </tr>
-            </thead>
+        <div class="table__header">
+            <div class="header__title">
+                Название
+            </div>
+        </div>
+        <div class="table__body">
+            <table class='table__block'>
+                <thead>
+                    <tr>
+                        <slot name="thead" />
+                    </tr>
+                </thead>
 
-            <tbody>
-                <slot name="body" />
-            </tbody>
-        </table>
+                <tbody>
+                    <slot name="tbody" />
+                </tbody>
+            </table>
+        </div>
+        <div class="table__footer">
+            <div class="footer__total">
+                Итого 20 из 20
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
+
+
 </script>
 
 <style lang="scss" >
 .table {
-    position: relative;
-    border-radius: 0.75rem;
-    border: 1px solid #e7eaf0;
+    // position: relative;
+    // border-radius: 0.75rem;
+    // border: 1px solid #e7eaf0;
+
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 6px;
+    overflow: visible;
+
     // box-shadow: 0px 3px 3px -1px rgba(10, 22, 70, 0.1), 0px 0px 1px 0px rgba(10, 22, 70, 0.06) !important;
     .table__block::after {
         display: block;
@@ -37,24 +58,67 @@
         z-index: -100;
         border-radius: 0.75rem;
     }
+
+    .table__footer {
+        .footer__total {
+            color: rgb(107, 123, 147);
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            padding: 0.8rem 0.8rem;
+            padding-left: 0.8rem;
+        }
+    }
+
+    .table__header {
+        padding: 0.8rem 0.8rem;
+        padding-left: 0.8rem;
+    }
+
     .table__block {
         border-collapse: collapse;
         width: 100%;
         text-align: left;
+
+        caption-side: bottom;
+        border-collapse: collapse;
     }
+
     th,
     td {
-        padding: 1rem 1.5rem;
+        padding: 0.8rem 1.5rem;
+        padding-left: 0;
+        * {
+            display: flex;
+            align-items: center;
+        }
     }
+
+    th:first-child,
+    td:first-child {
+        padding-left: 0.8rem;
+        min-width: 25px;
+        width: 50px;
+        * {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
     thead {
         // background-color: #f5f9fc;
         background-color: white;
         color: #525f7f;
         border-bottom: 1px solid rgb(230, 230, 230);
         display: contents;
+
         th {
+            background: #f5f9fc;
+            border-top: 1px solid #eeeeee;
+            border-bottom: 1px solid #eeeeee;
             // border-top: 1px solid rgb(230, 230, 230);
-            border-bottom: 1px solid rgb(230, 230, 230);
             padding-top: 1rem;
             padding-bottom: 1rem;
             font-size: .675rem;
@@ -65,19 +129,23 @@
             vertical-align: middle;
         }
     }
+
     tbody {
         display: contents;
-        tr {
-            min-height: 70px;
-            height: 70px;
+
+        tr:nth-child(2n + 2) {
+            background: #f5f9fc;
+            border-top: 1px solid #eeeeee;
+            border-bottom: 1px solid #eeeeee;
         }
+
         td {
             border-bottom: 1px solid #e7eaf0;
             font-size: .8125rem;
             white-space: nowrap;
-            padding: 1rem 1.5rem;
             background-color: transparent;
         }
+
         tr:last-child {
             td {
                 border-bottom: 0;
@@ -87,13 +155,6 @@
 }
 
 .table__menu {
-    width: 15px;
-    height: 15px;
     cursor: pointer;
-    img {
-        object-fit: contain;
-        width: 100%;
-        height: 100%;
-    }
 }
 </style>
