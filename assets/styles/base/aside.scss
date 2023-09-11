@@ -36,7 +36,7 @@
             &__title {
                 background: #F5F9FC;
                 font-weight: 500;
-                color: #16192C;
+                color: $textColor;
                 display: flex;
                 align-items: center;
                 padding: 15px 40px;
@@ -51,7 +51,7 @@
             }
             &__link {
                 @include reset-link;
-                color: #6B7B93;
+                color: $textLightColor;
                 padding: 15px 40px;
                 padding-left: 66px;
                 transition: color 0.2s linear;

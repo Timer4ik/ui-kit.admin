@@ -1,3 +1,4 @@
+<!-- Не использовать, старый код -->
 <template>
     <div
         @click="setIsShow && setIsShow(false)"

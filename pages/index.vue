@@ -221,7 +221,7 @@
 
       <UiTable>
         <template #header>
-
+          
         </template>
         <template #thead>
           <th></th>
