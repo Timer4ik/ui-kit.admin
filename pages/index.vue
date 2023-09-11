@@ -212,7 +212,7 @@
           @focus="isActiveDrop = true"
       >
         <template #body>
-          <UiButton>Открыть</UiButton>
+          <div>Открыть</div>
         </template>
         <template #drop>
           <UiTypography>Кликай на меня</UiTypography>

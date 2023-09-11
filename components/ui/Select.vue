@@ -2,9 +2,11 @@
     <div
         class="control__field control__select"
         :class="{ select__active: isOpened }"
-        @click="isOpened = !isOpened"
+        @blur="isOpened = false"
+        
+        tabindex="-1"
     >
-        <div class="select__value">{{ selectedItem?.value || "Не выбрано" }}</div>
+        <div class="select__value" @click="isOpened ? isOpened = false : isOpened = true">{{ selectedItem?.value || "Не выбрано" }}</div>
 
         <div
             v-if="isOpened"
