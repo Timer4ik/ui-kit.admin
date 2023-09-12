@@ -1,55 +1,55 @@
 @font-face {
     font-family: "PT Sans";
-    src: url("../../public/fonts/PTSans-Regular.ttf");
+    src: url("./PTSans-Regular.ttf");
     font-style: normal;
     font-weight: normal;
 }
 
 @font-face {
     font-family: "PT Sans";
-    src: url("../../public/fonts/PTSans-Bold.ttf");
+    src: url("./PTSans-Bold.ttf");
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: "PT Sans";
-    src: url("../../public/fonts/PTSans-Italic.ttf");
+    src: url("./PTSans-Italic.ttf");
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
     font-family: "PT Sans";
-    src: url("../../public/fonts/PTSans-BoldItalic.ttf");
+    src: url("./PTSans-BoldItalic.ttf");
     font-style: italic;
     font-weight: bold;
 }
 
 @font-face {
     font-family: "Inter";
-    src: url("../../public/fonts/Inter-Regular.ttf");
+    src: url("./Inter-Regular.ttf");
     font-style: normal;
     font-weight: normal;
 }
 
 @font-face {
     font-family: "Inter";
-    src: url("../../public/fonts/Inter-Medium.ttf");
+    src: url("./Inter-Medium.ttf");
     font-style: normal;
     font-weight: 500;
 }
 
 @font-face {
     font-family: "Inter";
-    src: url("../../public/fonts/Inter-Bold.ttf");
+    src: url("./Inter-Bold.ttf");
     font-style: normal;
     font-weight: 700;
 }
 
 @font-face {
     font-family: "Inter";
-    src: url("../../public/fonts/Inter-SemiBold.ttf");
+    src: url("./Inter-SemiBold.ttf");
     font-style: normal;
     font-weight: 600;
 }

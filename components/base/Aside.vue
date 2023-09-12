@@ -23,34 +23,11 @@
                 <div class="item__list">
                     <NuxtLink
                         class="item__link"
-                        to="/genres"
+                        to="/blog"
                     >
-                        Жанры фильмов
+                        Новостной блог
                     </NuxtLink>
-                    <NuxtLink
-                        class="item__link"
-                        to="/properties"
-                    >
-                        Характеристики
-                    </NuxtLink>
-                    <NuxtLink
-                        class="item__link"
-                        to="/developers"
-                    >
-                        Производители
-                    </NuxtLink>
-                    <NuxtLink
-                        class="item__link"
-                        to="/products"
-                    >
-                        Товары
-                    </NuxtLink>
-                    <NuxtLink
-                        class="item__link"
-                        to="/sliders"
-                    >
-                        Слайдеры
-                    </NuxtLink>
+                    
                 </div>
             </div>
         </nav>
