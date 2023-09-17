@@ -2,10 +2,9 @@
     <div
         class="dropdown"
         tabindex="-1"
-        @blur.capture="isShow = false"
-        @focus.capture="isShow = true"
+        @focusout="isShow = false"
     >
-        <div class='dropdown-menu-button'>
+        <div class='dropdown-menu-button' @click="isShow = !isShow">
             <slot name="body" />
         </div>
         <div
