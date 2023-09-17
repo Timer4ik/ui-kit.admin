@@ -1,25 +1,28 @@
-<template>
+<template >
     <div
-        class="control__field control__select"
-        :class="{ select__active: isOpened }"
-        @blur="isOpened = false"
-        
         tabindex="-1"
+        @focusout="isOpened = false"
     >
-        <div class="select__value" @click="isOpened ? isOpened = false : isOpened = true">{{ selectedItem?.value || "Не выбрано" }}</div>
-
         <div
-            v-if="isOpened"
-            class="select__options"
+            @click.stop="isOpened = !isOpened"
+            class="control__field control__select"
+            :class="{ select__active: isOpened }"
         >
+            <div class="select__value">{{ selectedItem?.value || "Не выбрано" }}</div>
+
             <div
-                class="options__item"
-                v-for="option in options"
-                :key="option.id"
-                @click="selectedItem?.id === option.id ? $emit('update:selectedItem', null) : $emit('update:selectedItem', option)"
-                :class="{ selected: option?.id == selectedItem?.id }"
+                v-if="isOpened"
+                class="select__options"
             >
-                {{ option?.value }}
+                <div
+                    class="options__item"
+                    v-for="option in options"
+                    :key="option.id"
+                    @click.stop="selectedItem?.id === option.id ? $emit('update:selectedItem', null) : $emit('update:selectedItem', option)"
+                    :class="{ selected: option?.id == selectedItem?.id }"
+                >
+                    {{ option?.value }}
+                </div>
             </div>
         </div>
     </div>
@@ -51,6 +54,4 @@ const isOpened = ref(false)
 
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

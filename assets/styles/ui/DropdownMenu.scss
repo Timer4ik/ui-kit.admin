@@ -1,6 +1,6 @@
 .dropdown {
     position: relative;
-
+    cursor: pointer;
     &.active {
         .dropdown-menu {
             display: flex;

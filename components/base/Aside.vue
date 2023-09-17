@@ -23,9 +23,9 @@
                 <div class="item__list">
                     <NuxtLink
                         class="item__link"
-                        to="/blog"
+                        to="/"
                     >
-                        Новостной блог
+                        Подконтент
                     </NuxtLink>
                     
                 </div>

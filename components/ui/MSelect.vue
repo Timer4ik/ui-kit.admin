@@ -1,29 +1,30 @@
 <template>
     <div
-        class="control__field control__select"
         :class="{ select__active: isOpened }"
-        @blur="isOpened = false"
         tabindex="-1"
+        @blur="isOpened = false"
     >
         <div
             @click="isOpened ? isOpened = false : isOpened = true"
-            class="select__value"
-        >{{ "Выбрано " + selectedItems?.length || "Не выбрано" }}</div>
-
-        <div
-            v-if="isOpened"
-            class="select__options"
+            class="control__field control__select"
         >
+            <div class="select__value">{{ "Выбрано " + selectedItems?.length || "Не выбрано" }}</div>
+
             <div
-                class="options__item"
-                v-for="option in options"
-                :key="option.id"
-                @click="selectedItems?.find(i => option.id == i.id) ?
-                    $emit('update:selectedItems', selectedItems?.filter(i => i.id !== option.id)) :
-                    $emit('update:selectedItems', [...selectedItems, option])"
-                :class="{ selected: selectedItems?.find(i => option.id == i.id) }"
+                v-if="isOpened"
+                class="select__options"
             >
-                {{ option.value }}
+                <div
+                    class="options__item"
+                    v-for="option in options"
+                    :key="option.id"
+                    @click.stop="selectedItems?.find(i => option.id == i.id) ?
+                        $emit('update:selectedItems', selectedItems?.filter(i => i.id !== option.id)) :
+                        $emit('update:selectedItems', [...selectedItems, option])"
+                    :class="{ selected: selectedItems?.find(i => option.id == i.id) }"
+                >
+                    {{ option.value }}
+                </div>
             </div>
         </div>
     </div>

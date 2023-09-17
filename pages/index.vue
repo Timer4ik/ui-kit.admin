@@ -208,14 +208,14 @@
     >
       <UiDropdownMenu
           :isShow="isActiveDrop"
-          @blur="isActiveDrop = false"
-          @focus="isActiveDrop = true"
+          @focusout.capture="isActiveDrop = false"
+          @click="isActiveDrop = !isActiveDrop"
       >
         <template #body>
-          <UiButton>Открыть</UiButton>
+          <UiButton style="pointer-events: none;cursor: pointer;">Открыть</UiButton>
         </template>
         <template #drop>
-          <div @click.stop>
+          <div>
             <UiTypography  >Кликай на меня</UiTypography>
           </div>
         </template>
